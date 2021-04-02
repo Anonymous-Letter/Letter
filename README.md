@@ -1,1 +1,87 @@
+
 # Letter
+
+## Table of Contents
+1. [Overview](#Overview)
+1. [Product Spec](#Product-Spec)
+1. [Wireframes](#Wireframes)
+2. [Schema](#Schema)
+
+## Overview
+### Description
+User can write an anonymous "letter" about their concerns and let others help find a solution for them!
+
+### App Evaluation
+[Evaluation of your app across the following attributes]
+- **Category:** Social Networking
+- **Mobile:** This app will be primarily developed for mobile but would also be viable on a computer. The functionality wouldn't be limited to mobile devices, however mobile version could potentially have more features.
+- **Story:** Gets the user's letter and displays it to the other users to respond and get support from.  
+- **Market:** Any individual above the age of thirteen could choose to use this app.
+- **Habit:** This app could be used as often or unoften as the user wants depending on how deep their social life is, and what exactly they're looking for.
+- **Scope:** This app starts as means to express our emotions and so it can eventually become an app that can guide people into therapy and focusing on mental well-being.
+
+## Product Spec
+
+### 1. User Stories (Required and Optional)
+
+**Required Must-have Stories**
+
+* User can log in and log out of their account.
+* User can compose a letter about their concerns under a certain category (Example: love, friendship, work, study etc.).
+* User can view the letters from their home timeline.
+* User can refresh home timeline by pulling down to refresh (i.e pull-to-refresh)
+* User can tap an anonymous letter to display a "detailed" view of that letter (e.g., category, letter content, reply button).
+* User can reply to other users' letters, offering suggestions to help them.
+* User will have a profile page to view their letters and the responses.
+* The current signed in user is persisted across app restarts
+
+**Optional Nice-to-have Stories**
+
+* A report feature that will prevent cyber-bullying.
+* Infinite scrolling feature
+* Filter letters into their respective categories
+
+### 2. Screen Archetypes
+
+* Login
+* Home Screen - Contains Anonymous Letters
+   * Upon clicking a letter title, the user will be able to view the contents.
+   * User can reply by clicking the Reply button.
+* Letter and Reply Screen
+   * User can respond to the letter, offering some advice.
+   * After composing a reponse, user can submit the reply.
+* Compose Screen
+   * User can choose a category of the letter to be written (Ex: love, friendship, work, study etc.)
+   * User can compose a letter, penning out their concerns and submit it anonymously.
+* Profile Screen
+   * User can see their own letters, and the responses associated with their letters.
+* Logout
+
+### 3. Navigation
+
+**Tab Navigation** (Tab to Screen)
+
+* Home
+* Compose
+* Profile
+
+Optional
+* Settings
+* Report
+
+
+**Flow Navigation** (Screen to Screen)
+
+* Login
+   * Jumps to Home Screen
+* Home Screen
+   * Jumps to Reply Screen when prompted
+   * Text field will be modified
+* Compose Letter
+   * Text field will be modified 
+* Profile
+   * Jumps to Login screen when logged out
+
+## Wireframes
+<img src="https://i.imgur.com/Q5HUaKU.jpg" width=600>
+
