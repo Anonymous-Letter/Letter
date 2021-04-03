@@ -107,7 +107,7 @@ Optional
    | Property      | Type     | Description |
    | ------------- | -------- | ------------|
    | objectId      | String   | unique id for the user post (default field) |
-   | author        | Pointer to User| reply author |
+   | user          | Pointer to User| user who reply to the targetted letter |
    | letter        | Pointer to Letter| targetted letter |
    | content       | String   | reply content |
    | report        | Bool     | report problem |
