@@ -85,3 +85,5 @@ Optional
 ## Wireframes
 <img src="https://i.imgur.com/Q5HUaKU.jpg" width=600>
 
+## Schema
+
