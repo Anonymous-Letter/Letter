@@ -1,3 +1,5 @@
+Original App Design Project - README Template
+===
 
 # Letter
 
@@ -77,13 +79,69 @@ Optional
 * Home Screen
    * Jumps to Reply Screen when prompted
    * Text field will be modified
-* Compose Letter
+* Compose Screen
    * Text field will be modified 
-* Profile
+* Profile Screen
    * Jumps to Login screen when logged out
 
 ## Wireframes
 <img src="https://i.imgur.com/Q5HUaKU.jpg" width=600>
 
-## Schema
 
+## Schema 
+### Models
+#### Letter
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | objectId      | String   | unique id for the user post (default field) |
+   | author        | Pointer to User| letter author |
+   | category      | String   | category of letter content |
+   | title         | String   | letter title |
+   | content       | String   | letter content |
+   | createdAt     | DateTime | date when letter is created (default field) |
+   | updatedAt     | DateTime | date when letter is last updated (default field) |
+   
+#### Reply
+    
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | objectId      | String   | unique id for the user post (default field) |
+   | author        | Pointer to User| reply author |
+   | letter        | Pointer to Letter| targetted letter |
+   | content       | String   | reply content |
+   | report        | Bool     | report problem |
+   | createdAt     | DateTime | date when reply is created (default field) |
+   | updatedAt     | DateTime | date when reply is last updated (default field) |
+
+### Networking
+#### List of network requests by screen
+   - Home Screen
+      - (Read/GET) Query all letters
+         ```swift
+         let query = PFQuery(className:"Letter")
+         query.order(byDescending: "createdAt")
+         query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
+            if let error = error { 
+               print(error.localizedDescription)
+            } else if let letters = letters {
+               print("Successfully retrieved \(letters.count) letters.")
+           // TODO: Do something with posts...
+            }
+         }
+                    
+      - (Read/GET) Query all categories 
+      
+   - Letter and Reply Screen
+      - (Read/GET) Query specific letter clicked
+      - (Create/POST) Create new reply object
+      
+   - Compose Screen
+      - (Create/POST) Create a new letter object
+      
+   - Profile Screen
+      - (Read/GET) Query logged in user object
+      - (Read/GET) Query all letters from current user
+      - (Read/GET) Query all replys for each letter
+      - (Update/PUT) Update report
+      - (Update/PUT) Update user profile image
