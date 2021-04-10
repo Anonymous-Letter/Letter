@@ -25,6 +25,7 @@ import java.util.List;
 public class HomeFragment extends Fragment {
 
     public static final String TAG = "HomeFragment";
+    private RecyclerView rvCategories;
     private RecyclerView rvLetters;
     protected LettersAdapter adapter;
     protected List<Letter> allLetters;
@@ -39,6 +40,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        rvCategories = view.findViewById(R.id.rvCategories);
         rvLetters = view.findViewById(R.id.rvLetters);
 
         allLetters = new ArrayList<>();
@@ -46,7 +48,7 @@ public class HomeFragment extends Fragment {
         rvLetters.setAdapter(adapter);
         rvLetters.setLayoutManager(new LinearLayoutManager(getContext()));
 
-
+        queryLetters();
     }
 
     protected void queryLetters() {
