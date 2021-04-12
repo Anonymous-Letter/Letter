@@ -1,0 +1,66 @@
+package com.example.letter;
+
+import android.content.Context;
+import android.media.tv.TvContentRating;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+import com.parse.ParseFile;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.List;
+
+public class LettersAdapter extends RecyclerView.Adapter<LettersAdapter.ViewHolder> {
+
+    private Context context;
+    private List<Letter> letters;
+
+    public LettersAdapter(Context context, List<Letter> letters) {
+        this.context = context;
+        this.letters = letters;
+    }
+
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.item_letter, parent, false);
+        return new ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        Letter letter = letters.get(position);
+        holder.bind(letter);
+    }
+
+    @Override
+    public int getItemCount() {
+        return letters.size();
+    }
+
+    class ViewHolder extends RecyclerView.ViewHolder {
+
+        private TextView tvTitle;
+        private TextView tvCategory;
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            tvTitle = itemView.findViewById(R.id.tvTitle);
+            tvCategory = itemView.findViewById(R.id.tvCategory);
+        }
+
+        public void bind(Letter letter) {
+            // Bind the post data to the view elements
+            tvTitle.setText(letter.getTitle());
+            tvCategory.setText(letter.getCategory());
+        }
+    }
+}
