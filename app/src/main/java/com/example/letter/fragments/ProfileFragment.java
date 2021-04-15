@@ -1,5 +1,6 @@
 package com.example.letter.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,12 +13,12 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.letter.MainActivity;
 import com.example.letter.R;
 
 
 public class ProfileFragment extends Fragment {
     public static final String TAG = "ProfileFragment";
-    private Button btnBack;
     private Button btnSetting;
     private RecyclerView rvReply;
 
@@ -31,8 +32,19 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        btnBack = view.findViewById(R.id.btnBack);
         btnSetting = view.findViewById(R.id.btnSetting);
         rvReply = view.findViewById(R.id.rvReply);
+
+        btnSetting.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                goSetting();
+            }
+        });
+    }
+
+    private void goSetting() {
+
     }
 }
