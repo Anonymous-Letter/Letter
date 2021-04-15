@@ -61,7 +61,7 @@ public class ProfileFragment extends Fragment {
 
     private void goLoginActivity() {
 
-        Intent i = new Intent(getContext(), LoginActivity.TAG.getClass());
+        Intent i = new Intent(getActivity(), LoginActivity.class);
         startActivity(i);
     }
 
