@@ -1,6 +1,7 @@
 package com.example.letter.fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,9 +13,18 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.letter.Letter;
 import com.example.letter.MainActivity;
 import com.example.letter.R;
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseFile;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
+
+import java.io.File;
+import java.util.List;
 
 public class ComposeFragment extends Fragment {
 
@@ -61,8 +71,9 @@ public class ComposeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 String heading = etHeading.getText().toString();
+                String category = spCategory.getSelectedItem().toString();
                 String content = etContent.getText().toString();
-                //TODO: include a condition to check if Category is selected. Must find the what type the spinner content is.
+
                 if(heading.isEmpty()){
                     Toast.makeText(getContext(),"Heading cannot be empty",Toast.LENGTH_SHORT).show();
                     return;
@@ -72,8 +83,47 @@ public class ComposeFragment extends Fragment {
                     Toast.makeText(getContext(),"Content cannot be empty",Toast.LENGTH_SHORT).show();
                     return;
                 }
-                ParseUser currentUser = ParseUser.getCurrentUser();
+                ParseUser currentAuthor = ParseUser.getCurrentUser();
                 //save post and some other components must be added. check 5:35 of ep 8
+                savePost(content,category,currentAuthor);
+            }
+        });
+
+    }
+
+    private void savePost(String content, String category, ParseUser currentAuthor) {
+        Letter letter = new Letter();
+        letter.setContent(content);
+        letter.setCategory(category);
+        //additional data in reference to slack
+        letter.setUser(currentAuthor);
+        letter.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(ParseException e) {
+                if(e!=null){
+                    Log.e(TAG,"Error while saving",e);
+                    Toast.makeText(getContext(),"Error while saving",Toast.LENGTH_SHORT).show();
+                }
+                Log.i(TAG,"Post save was successful");
+                etContent.setText("");
+
+            }
+        });
+    }
+
+    private void queryPosts() {
+        ParseQuery<Letter> query = ParseQuery.getQuery(Letter.class);
+        query.include(Letter.KEY_AUTHOR);
+        query.findInBackground(new FindCallback<Letter>() {
+            @Override
+            public void done(List<Letter> letters, ParseException e) {
+                if(e!=null){
+                    Log.e(TAG,"Issue with getting posts",e);
+                    return;
+                }
+                for(Letter letter: letters){
+                    Log.i(TAG,"Letter: "+letter.getContent()+", username: "+letter.getUser().getUsername());
+                }
             }
         });
     }
