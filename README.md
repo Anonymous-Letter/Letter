@@ -28,7 +28,7 @@ User can write an anonymous "letter" about their concerns and let others help fi
 
 **Required Must-have Stories**
 
-* User can log in and log out of their account.
+* - [X] User can log in and log out of their account.
 * User can compose a letter about their concerns under a certain category (Example: love, friendship, work, study etc.).
 * User can view the letters from their home timeline.
 * User can refresh home timeline by pulling down to refresh (i.e pull-to-refresh)
