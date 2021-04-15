@@ -1,21 +1,14 @@
 package com.example.letter;
 
 import android.content.Context;
-import android.media.tv.TvContentRating;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.parse.ParseFile;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class LettersAdapter extends RecyclerView.Adapter<LettersAdapter.ViewHolder> {
