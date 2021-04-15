@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.letter.fragments.ComposeFragment;
 import com.example.letter.fragments.HomeFragment;
@@ -31,13 +32,16 @@ public class MainActivity extends AppCompatActivity {
                 switch (menuItem.getItemId()) {
                     case R.id.action_home:
                         // TODO: update fragment
+                        Toast.makeText(MainActivity.this,"Home",Toast.LENGTH_SHORT).show();
                         fragment = new HomeFragment();
                         break;
                     case R.id.action_compose:
+                        Toast.makeText(MainActivity.this,"Compose",Toast.LENGTH_SHORT).show();
                         fragment = new ComposeFragment();
                         break;
                     case R.id.action_profile:
                     default:
+                        Toast.makeText(MainActivity.this,"Profile",Toast.LENGTH_SHORT).show();
                         fragment = new ProfileFragment();
                         break;
                 }
