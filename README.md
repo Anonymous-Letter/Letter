@@ -29,19 +29,19 @@ User can write an anonymous "letter" about their concerns and let others help fi
 **Required Must-have Stories**
 
 * - [X] User can log in and log out of their account.
-* User can compose a letter about their concerns under a certain category (Example: love, friendship, work, study etc.).
-* User can view the letters from their home timeline.
-* User can refresh home timeline by pulling down to refresh (i.e pull-to-refresh)
-* User can tap an anonymous letter to display a "detailed" view of that letter (e.g., category, letter content, reply button).
-* User can reply to other users' letters, offering suggestions to help them.
-* User will have a profile page to view their letters and the responses.
-* The current signed in user is persisted across app restarts
+* - [X] User can compose a letter about their concerns under a certain category (Example: love, friendship, work, study etc.).
+* - [ ] User can view the letters from their home timeline.
+* - [ ] User can refresh home timeline by pulling down to refresh (i.e pull-to-refresh)
+* - [ ] User can tap an anonymous letter to display a "detailed" view of that letter (e.g., category, letter content, reply button).
+* - [ ] User can reply to other users' letters, offering suggestions to help them.
+* - [ ] User will have a profile page to view their letters and the responses.
+* - [X] The current signed in user is persisted across app restarts
 
 **Optional Nice-to-have Stories**
 
-* A report feature that will prevent cyber-bullying.
-* Infinite scrolling feature
-* Filter letters into their respective categories
+* - [ ] A report feature that will prevent cyber-bullying.
+* - [ ] Infinite scrolling feature
+* - [ ] Filter letters into their respective categories
 
 ### 2. Screen Archetypes
 
