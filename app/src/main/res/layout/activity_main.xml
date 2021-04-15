@@ -8,34 +8,23 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btnLogout"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
-        android:background="#000000"
-        android:text="Log Out"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold" />
-
     <FrameLayout
         android:id="@+id/flContainer"
         android:layout_width="match_parent"
-        android:layout_height="653dp"
-        android:layout_below="@+id/btnLogout"
+        android:layout_height="600dp"
         android:layout_marginTop="0dp"></FrameLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/flContainer"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="0dp"
         android:layout_marginBottom="0dp"
+        android:background="#fff"
+        app:itemIconTint="@color/cardview_dark_background"
+        app:itemTextColor="#000000"
         app:menu="@menu/menu_bottom_navigation" />
 
 </RelativeLayout>
