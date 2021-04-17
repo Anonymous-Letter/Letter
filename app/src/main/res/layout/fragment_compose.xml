@@ -34,7 +34,7 @@
     <EditText
         android:id="@+id/etContent"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="341dp"
         android:layout_marginTop="48dp"
         android:ems="10"
         android:hint="type your concerns..."
