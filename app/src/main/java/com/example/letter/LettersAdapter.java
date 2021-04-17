@@ -39,6 +39,11 @@ public class LettersAdapter extends RecyclerView.Adapter<LettersAdapter.ViewHold
         return letters.size();
     }
 
+    public void addAll(List<Letter> letterList) {
+        letters.addAll(letterList);
+        notifyDataSetChanged();
+    }
+
     class ViewHolder extends RecyclerView.ViewHolder {
 
         private TextView tvTitle;
