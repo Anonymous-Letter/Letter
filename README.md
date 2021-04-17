@@ -84,6 +84,14 @@ Optional
 * Profile Screen
    * Jumps to Login screen when logged out
 
+## Video Walkthrough
+
+Here's a walkthrough of the current implemented user stories:
+
+<img src='https://github.com/Anonymous-Letter/Letter/blob/master/logout_walkthrough1.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
+
 ## Wireframes
 <img src="https://i.imgur.com/Q5HUaKU.jpg" width=600>
 

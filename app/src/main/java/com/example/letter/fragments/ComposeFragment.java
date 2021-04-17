@@ -59,7 +59,6 @@ public class ComposeFragment extends Fragment {
         etContent= view.findViewById(R.id.etContent);
         btnSubmit= view.findViewById(R.id.btnSubmit);
 
-        spCategory = view.findViewById(R.id.spCategory);
         //create a list of items for the spinner.
         String[] items = new String[]{"Love", "Friendship", "Work","Study","Other..."};
         //adapter created to describe how the items are displayed. 'this' is used instead of getContext() in some samples
@@ -74,6 +73,7 @@ public class ComposeFragment extends Fragment {
                 String category = spCategory.getSelectedItem().toString();
                 String content = etContent.getText().toString();
 
+
                 if(heading.isEmpty()){
                     Toast.makeText(getContext(),"Heading cannot be empty",Toast.LENGTH_SHORT).show();
                     return;
@@ -84,19 +84,21 @@ public class ComposeFragment extends Fragment {
                     return;
                 }
                 ParseUser currentAuthor = ParseUser.getCurrentUser();
-                //save post and some other components must be added. check 5:35 of ep 8
-                savePost(content,category,currentAuthor);
+
+                savePost(heading, content,category,currentAuthor);
+                Toast.makeText(getContext(),"Submitted successfully",Toast.LENGTH_SHORT).show();
             }
         });
 
     }
 
-    private void savePost(String content, String category, ParseUser currentAuthor) {
+    private void savePost(String heading, String content, String category, ParseUser currentAuthor) {
         Letter letter = new Letter();
         letter.setContent(content);
         letter.setCategory(category);
         //additional data in reference to slack
         letter.setUser(currentAuthor);
+        letter.setTitle(heading);
         letter.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
