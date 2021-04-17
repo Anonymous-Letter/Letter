@@ -61,7 +61,7 @@ public class ComposeFragment extends Fragment {
 
         spCategory = view.findViewById(R.id.spCategory);
         //create a list of items for the spinner.
-        String[] items = new String[]{"Love", "Friendship", "Work","Study","Other..."};
+        String[] items = new String[]{"Friendship", "Job", "Love", "Study", "Work", "Other"};
         //adapter created to describe how the items are displayed. 'this' is used instead of getContext() in some samples
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, items);
         //set the spinners adapter to the previously created one.
@@ -85,14 +85,15 @@ public class ComposeFragment extends Fragment {
                 }
                 ParseUser currentAuthor = ParseUser.getCurrentUser();
                 //save post and some other components must be added. check 5:35 of ep 8
-                savePost(content,category,currentAuthor);
+                savePost(heading, content, category, currentAuthor);
             }
         });
 
     }
 
-    private void savePost(String content, String category, ParseUser currentAuthor) {
+    private void savePost(String title, String content, String category, ParseUser currentAuthor) {
         Letter letter = new Letter();
+        letter.setTitle(title);
         letter.setContent(content);
         letter.setCategory(category);
         //additional data in reference to slack
@@ -105,8 +106,8 @@ public class ComposeFragment extends Fragment {
                     Toast.makeText(getContext(),"Error while saving",Toast.LENGTH_SHORT).show();
                 }
                 Log.i(TAG,"Post save was successful");
+                etHeading.setText("");
                 etContent.setText("");
-
             }
         });
     }

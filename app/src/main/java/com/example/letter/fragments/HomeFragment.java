@@ -5,6 +5,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,7 +27,7 @@ import java.util.List;
 public class HomeFragment extends Fragment {
 
     public static final String TAG = "HomeFragment";
-    private RecyclerView rvCategories;
+    private Spinner spCategories;
     private RecyclerView rvLetters;
     protected LettersAdapter adapter;
     protected List<Letter> allLetters;
@@ -40,21 +42,29 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        rvCategories = view.findViewById(R.id.rvCategories);
-        rvLetters = view.findViewById(R.id.rvLetters);
+        spCategories = view.findViewById(R.id.spCategories);
+        //create a list of items for the spinner.
+        String[] items = new String[]{"All", "Friendship", "Job", "Love", "Study", "Work", "Other"};
+        //adapter created to describe how the items are displayed. 'this' is used instead of getContext() in some samples
+        ArrayAdapter<String> catAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, items);
+        //set the spinners adapter to the previously created one.
+        spCategories.setAdapter(catAdapter);
+        String selected = spCategories.getSelectedItem().toString();
 
+        rvLetters = view.findViewById(R.id.rvLetters);
         allLetters = new ArrayList<>();
         adapter = new LettersAdapter(getContext(), allLetters);
         rvLetters.setAdapter(adapter);
         rvLetters.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        queryLetters();
+        queryLetters(selected);
     }
 
-    protected void queryLetters() {
+    protected void queryLetters(String category) {
         ParseQuery<Letter> query = ParseQuery.getQuery(Letter.class);
-        query.include(Letter.KEY_AUTHOR);
-        query.addDescendingOrder(Letter.KEY_CREATED_AT);
+        if ( category != "All" ) {
+            query.whereEqualTo("category", category);
+        }
         query.findInBackground(new FindCallback<Letter>() {
             @Override
             public void done(List<Letter> letters, ParseException e) {
