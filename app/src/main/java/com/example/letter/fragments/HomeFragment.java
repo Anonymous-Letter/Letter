@@ -19,6 +19,7 @@ import com.example.letter.LettersAdapter;
 import com.example.letter.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
+import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
 import java.util.ArrayList;
@@ -43,6 +44,7 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         spCategories = view.findViewById(R.id.spCategories);
+        ParseObject.registerSubclass(Letter.class);
         //create a list of items for the spinner.
         String[] items = new String[]{"All", "Friendship", "Job", "Love", "Study", "Work", "Other"};
         //adapter created to describe how the items are displayed. 'this' is used instead of getContext() in some samples
@@ -73,7 +75,11 @@ public class HomeFragment extends Fragment {
                     return;
                 }
                 for (Letter letter : letters) {
-                    Log.i(TAG, "Letters: " + letter.getTitle() + ", username: " + letter.getUser().getUsername());
+                    try {
+                        Log.i(TAG, "Letters: " + letter.getTitle() + ", username: " + letter.getUser().fetchIfNeeded().getUsername());
+                    } catch (ParseException parseException) {
+                        parseException.printStackTrace();
+                    }
                 }
 
                 allLetters.addAll(letters);

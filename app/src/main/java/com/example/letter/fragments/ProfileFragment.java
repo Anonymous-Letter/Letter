@@ -11,19 +11,29 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.letter.LoginActivity;
-import com.example.letter.MainActivity;
+import com.example.letter.Letter;
+import com.example.letter.LettersAdapter;
 import com.example.letter.R;
+import com.example.letter.SettingsActivity;
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ProfileFragment extends Fragment {
     public static final String TAG = "ProfileFragment";
-    private Button btnLogout;
     private Button btnSetting;
     private RecyclerView rvReply;
+    protected LettersAdapter adapter;
+    protected List<Letter> allLetters;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,23 +45,18 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        btnLogout = view.findViewById(R.id.btnLogout);
+        ParseObject.registerSubclass(Letter.class);
         btnSetting = view.findViewById(R.id.btnSetting);
         rvReply = view.findViewById(R.id.rvReply);
 
+        allLetters = new ArrayList<>();
+        adapter = new LettersAdapter(getContext(), allLetters);
+        rvReply.setAdapter(adapter);
+        rvReply.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        btnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ParseUser.logOut();
-                ParseUser currentUser = ParseUser.getCurrentUser(); // this will now be null
-                goLoginActivity();
-            }
-        });
-
+        queryLetters();
 
         btnSetting.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 goSetting();
@@ -59,13 +64,36 @@ public class ProfileFragment extends Fragment {
         });
     }
 
-    private void goLoginActivity() {
-
-        Intent i = new Intent(getActivity(), LoginActivity.class);
+    private void goSetting() {
+        Intent i = new Intent(getActivity(), SettingsActivity.class);
         startActivity(i);
     }
 
-    private void goSetting() {
 
+    protected void queryLetters() {
+        ParseQuery<Letter> query = ParseQuery.getQuery(Letter.class);
+        query.include(Letter.KEY_AUTHOR);
+        query.whereEqualTo(Letter.KEY_AUTHOR, ParseUser.getCurrentUser());
+        query.setLimit(20);
+        query.addDescendingOrder(Letter.KEY_CREATED_AT);
+        query.findInBackground(new FindCallback<Letter>() {
+            @Override
+            public void done(List<Letter> posts, ParseException e) {
+                if(e != null){
+                    Log.e(TAG, "Issue with getting letters", e);
+                    return;
+                }
+                for(Letter letter: allLetters){
+                    try {
+                        Log.i(TAG, "Post: " +letter.getContent() + ", username: " + letter.getUser().fetchIfNeeded().getUsername());
+                    } catch (ParseException parseException) {
+                        parseException.printStackTrace();
+                    }
+                }
+                allLetters.addAll(posts);
+                adapter.notifyDataSetChanged();
+            }
+        });
     }
+
 }
