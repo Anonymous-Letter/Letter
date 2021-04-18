@@ -13,7 +13,7 @@ import android.widget.Button;
 
 import com.example.letter.fragments.ComposeFragment;
 import com.example.letter.fragments.HomeFragment;
-import com.example.letter.fragments.ProfileFragment;
+//import com.example.letter.fragments.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.parse.ParseUser;
 

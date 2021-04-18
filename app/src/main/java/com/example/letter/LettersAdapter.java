@@ -13,8 +13,8 @@ import java.util.List;
 
 public class LettersAdapter extends RecyclerView.Adapter<LettersAdapter.ViewHolder> {
 
-    private Context context;
-    private List<Letter> letters;
+    Context context;
+    List<Letter> letters;
 
     public LettersAdapter(Context context, List<Letter> letters) {
         this.context = context;
@@ -37,6 +37,12 @@ public class LettersAdapter extends RecyclerView.Adapter<LettersAdapter.ViewHold
     @Override
     public int getItemCount() {
         return letters.size();
+    }
+
+    // Clean all elements of the recycler
+    public void clear() {
+        letters.clear();
+        notifyDataSetChanged();
     }
 
     public void addAll(List<Letter> letterList) {

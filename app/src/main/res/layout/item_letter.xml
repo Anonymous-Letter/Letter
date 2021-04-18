@@ -11,6 +11,7 @@
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textStyle="bold"
         tools:text="Title" />
@@ -22,12 +23,4 @@
         android:textAlignment="textEnd"
         tools:text="Category" />
 
-    <Button
-        android:id="@+id/openBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="150dp"
-        android:layout_marginRight="150dp"
-        android:text="Open"
-        android:textAlignment="center" />
 </LinearLayout>
