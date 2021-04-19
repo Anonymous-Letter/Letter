@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.letter.Letter;
@@ -19,6 +21,7 @@ import com.example.letter.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
+import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
@@ -50,10 +53,13 @@ public class ComposeFragment extends Fragment {
     // This event is triggered soon after onCreateView().
     // Any view setup should occur here.  E.g., view lookups and attaching view listeners.
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         // Setup any handles to view objects here
         // EditText etFoo = (EditText) view.findViewById(R.id.etFoo);
         super.onViewCreated(view, savedInstanceState);
+
+        ParseObject.registerSubclass(Letter.class);
+
         etHeading = view.findViewById(R.id.etHeading);
         spCategory= view.findViewById(R.id.spCategory);
         etContent= view.findViewById(R.id.etContent);
@@ -112,7 +118,7 @@ public class ComposeFragment extends Fragment {
         });
     }
 
-    private void queryPosts() {
+   /* private void queryPosts() {
         ParseQuery<Letter> query = ParseQuery.getQuery(Letter.class);
         query.include(Letter.KEY_AUTHOR);
         query.findInBackground(new FindCallback<Letter>() {
@@ -127,6 +133,6 @@ public class ComposeFragment extends Fragment {
                 }
             }
         });
-    }
+    }*/
 
 }
