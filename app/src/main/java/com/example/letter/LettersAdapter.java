@@ -1,9 +1,11 @@
 package com.example.letter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -54,11 +56,13 @@ public class LettersAdapter extends RecyclerView.Adapter<LettersAdapter.ViewHold
 
         private TextView tvTitle;
         private TextView tvCategory;
+        private Button btnOpen;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvTitle = itemView.findViewById(R.id.tvTitle);
             tvCategory = itemView.findViewById(R.id.tvCategory);
+            btnOpen = itemView.findViewById(R.id.btnOpen);
         }
 
         public void bind(Letter letter) {
