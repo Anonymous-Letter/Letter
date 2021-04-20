@@ -74,16 +74,12 @@ public class LettersAdapter extends RecyclerView.Adapter<LettersAdapter.ViewHold
 
                 @Override
                 public void onClick(View v) {
-                    LetterDetailsActivity activity = new LetterDetailsActivity();
-                    activity.passData(letter.getObjectId());
-                    goLetterDetails();
+                    Intent i = new Intent(context, LetterDetailsActivity.class);
+                    i.putExtra("LETTER_ID", letter.getObjectId());
+                    context.startActivity(i);
                 }
             });
         }
 
-        private void goLetterDetails() {
-            Intent i = new Intent(context, LetterDetailsActivity.class);
-            context.startActivity(i);
-        }
     }
 }
