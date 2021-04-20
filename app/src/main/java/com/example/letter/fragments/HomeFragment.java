@@ -5,7 +5,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
@@ -46,26 +48,27 @@ public class HomeFragment extends Fragment {
         spCategories = view.findViewById(R.id.spCategories);
         ParseObject.registerSubclass(Letter.class);
         //create a list of items for the spinner.
-        String[] items = new String[]{"All", "Friendship", "Job", "Love", "Study", "Work", "Other"};
+        String[] items = new String[]{"All", "Friendship", "Love", "Study", "Work", "Other"};
         //adapter created to describe how the items are displayed. 'this' is used instead of getContext() in some samples
         ArrayAdapter<String> catAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, items);
         //set the spinners adapter to the previously created one.
         spCategories.setAdapter(catAdapter);
+
         String selected = spCategories.getSelectedItem().toString();
+        queryLetters(selected);
 
         rvLetters = view.findViewById(R.id.rvLetters);
         allLetters = new ArrayList<>();
         adapter = new LettersAdapter(getContext(), allLetters);
         rvLetters.setAdapter(adapter);
         rvLetters.setLayoutManager(new LinearLayoutManager(getContext()));
-
-        queryLetters(selected);
     }
 
     protected void queryLetters(String category) {
         ParseQuery<Letter> query = ParseQuery.getQuery(Letter.class);
-        if ( category != "All" ) {
-            query.whereEqualTo("category", category);
+        if ( category == "All" ) {}
+        else {
+            query.whereContains("category", category);
         }
         query.findInBackground(new FindCallback<Letter>() {
             @Override

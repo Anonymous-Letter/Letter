@@ -67,7 +67,7 @@ public class ComposeFragment extends Fragment {
 
         spCategory = view.findViewById(R.id.spCategory);
         //create a list of items for the spinner.
-        String[] items = new String[]{"Friendship", "Job", "Love", "Study", "Work", "Other"};
+        String[] items = new String[]{"Friendship", "Love", "Study", "Work", "Other"};
         //adapter created to describe how the items are displayed. 'this' is used instead of getContext() in some samples
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, items);
         //set the spinners adapter to the previously created one.

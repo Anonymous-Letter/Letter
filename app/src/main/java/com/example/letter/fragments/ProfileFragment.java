@@ -69,7 +69,6 @@ public class ProfileFragment extends Fragment {
         startActivity(i);
     }
 
-
     protected void queryLetters() {
         ParseQuery<Letter> query = ParseQuery.getQuery(Letter.class);
         query.include(Letter.KEY_AUTHOR);
