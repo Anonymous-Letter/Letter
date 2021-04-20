@@ -69,6 +69,21 @@ public class LettersAdapter extends RecyclerView.Adapter<LettersAdapter.ViewHold
             // Bind the post data to the view elements
             tvTitle.setText(letter.getTitle());
             tvCategory.setText(letter.getCategory());
+
+            btnOpen.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    LetterDetailsActivity activity = new LetterDetailsActivity();
+                    activity.passData(letter.getObjectId());
+                    goLetterDetails();
+                }
+            });
+        }
+
+        private void goLetterDetails() {
+            Intent i = new Intent(context, LetterDetailsActivity.class);
+            context.startActivity(i);
         }
     }
 }
