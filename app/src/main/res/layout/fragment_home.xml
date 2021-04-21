@@ -8,8 +8,8 @@
 
     <Spinner
         android:id="@+id/spCategories"
-        android:layout_width="match_parent"
-        android:layout_height="80dp" />
+        android:layout_width="337dp"
+        android:layout_height="59dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvLetters"
@@ -17,4 +17,14 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/spCategories"
         android:layout_marginTop="5dp" />
+
+    <Button
+        android:id="@+id/btnFind"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_toEndOf="@+id/spCategories"
+        android:text="FIND" />
 </RelativeLayout>

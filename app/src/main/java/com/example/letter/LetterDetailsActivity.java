@@ -1,5 +1,6 @@
 package com.example.letter;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.appbar.CollapsingToolbarLayout;
@@ -18,7 +19,6 @@ import android.widget.Toast;
 
 public class LetterDetailsActivity extends AppCompatActivity {
 
-    private Button btnCancel;
     private TextView tvHead;
     private TextView tvContent;
     private Button btnReply;
@@ -48,5 +48,18 @@ public class LetterDetailsActivity extends AppCompatActivity {
             }
         });
 
+        btnReply.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                goReply();
+            }
+        });
+    }
+
+    private void goReply() {
+        Intent i = new Intent(this, ReplyActivity.class);
+        i.putExtra("REPLY_LETTER_ID", letterId);
+        startActivity(i);
     }
 }
