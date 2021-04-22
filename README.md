@@ -30,10 +30,10 @@ User can write an anonymous "letter" about their concerns and let others help fi
 
 * - [X] User can log in and log out of their account.
 * - [X] User can compose a letter about their concerns under a certain category (Example: love, friendship, work, study etc.).
-* - [ ] User can view the letters from their home timeline.
+* - [X] User can view the letters from their home timeline.
 * - [ ] User can refresh home timeline by pulling down to refresh (i.e pull-to-refresh)
-* - [ ] User can tap an anonymous letter to display a "detailed" view of that letter (e.g., category, letter content, reply button).
-* - [ ] User can reply to other users' letters, offering suggestions to help them.
+* - [X] User can tap an anonymous letter to display a "detailed" view of that letter (e.g., category, letter content, reply button).
+* - [X] User can reply to other users' letters, offering suggestions to help them.
 * - [ ] User will have a profile page to view their letters and the responses.
 * - [X] The current signed in user is persisted across app restarts
 
