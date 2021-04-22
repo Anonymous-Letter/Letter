@@ -88,7 +88,7 @@ Optional
 
 Here's a walkthrough of the current implemented user stories:
 
-<img src='https://github.com/Anonymous-Letter/Letter/blob/master/logout_walkthrough1.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/w6gmNhY.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
