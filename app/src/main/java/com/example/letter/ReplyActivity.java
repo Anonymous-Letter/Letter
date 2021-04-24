@@ -31,9 +31,21 @@ public class ReplyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reply);
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Letter");
         letterId = getIntent().getStringExtra("REPLY_LETTER_ID");
         tvReplyContent = findViewById(R.id.tvReplyContent);
         btnSend = findViewById(R.id.btnSend);
+
+        reply.put("user", ParseUser.getCurrentUser());
+        query.getInBackground(letterId, (object, error) -> {
+            if (error == null) {
+                reply.put("letter", object);
+            }
+            else {
+                // something went wrong
+                Toast.makeText(ReplyActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,21 +56,8 @@ public class ReplyActivity extends AppCompatActivity {
                     return;
                 }
 
-                ParseQuery<ParseObject> query = ParseQuery.getQuery("Letter");
-
-                reply.put("user", ParseUser.getCurrentUser());
                 reply.put("content", replyContent);
                 reply.put("report", false);
-
-                query.getInBackground(letterId, (object, error) -> {
-                    if (error == null) {
-                        reply.put("letter", object);
-                    }
-                    else {
-                        // something went wrong
-                        Toast.makeText(ReplyActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
 
                 reply.saveInBackground(new SaveCallback() {
                     @Override
