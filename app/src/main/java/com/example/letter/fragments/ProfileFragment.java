@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.letter.Letter;
 import com.example.letter.LettersAdapter;
 import com.example.letter.R;
+import com.example.letter.RepliesAdapter;
 import com.example.letter.SettingsActivity;
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -32,7 +33,7 @@ public class ProfileFragment extends Fragment {
     public static final String TAG = "ProfileFragment";
     private Button btnSetting;
     private RecyclerView rvReply;
-    protected LettersAdapter adapter;
+    protected RepliesAdapter adapter;
     protected List<Letter> allLetters;
 
     @Override
@@ -50,7 +51,7 @@ public class ProfileFragment extends Fragment {
         rvReply = view.findViewById(R.id.rvReply);
 
         allLetters = new ArrayList<>();
-        adapter = new LettersAdapter(getContext(), allLetters);
+        adapter = new RepliesAdapter(getContext(), allLetters);
         rvReply.setAdapter(adapter);
         rvReply.setLayoutManager(new LinearLayoutManager(getContext()));
 

@@ -86,10 +86,7 @@ public class HomeFragment extends Fragment {
 
     protected void queryLetters(String category) {
         ParseQuery<Letter> query = ParseQuery.getQuery(Letter.class);
-        if ( category == "All" ) {}
-        else {
-            query.whereContains("category", category);
-        }
+        query.addDescendingOrder(Letter.KEY_CREATED_AT);
         query.findInBackground(new FindCallback<Letter>() {
             @Override
             public void done(List<Letter> letters, ParseException e) {

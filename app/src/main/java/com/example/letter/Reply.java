@@ -5,29 +5,20 @@ import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
-@ParseClassName("Letter")
-public class Letter extends ParseObject {
+@ParseClassName("Reply")
+public class Reply extends ParseObject {
 
-    public static final String KEY_CATEGORY = "category";
-    public static final String KEY_TITLE = "title";
+    public static final String KEY_LETTER = "letter";
     public static final String KEY_CONTENT = "content";
-    public static final String KEY_AUTHOR = "author";
+    public static final String KEY_AUTHOR = "user";
     public static final String KEY_CREATED_AT = "createdAt";
 
-    public String getCategory() {
-        return getString(KEY_CATEGORY);
+    public ParseObject getLetter() {
+        return getParseObject(KEY_LETTER);
     }
 
-    public void setCategory(String category) {
-        put(KEY_CATEGORY, category);
-    }
-
-    public String getTitle() {
-        return getString(KEY_TITLE);
-    }
-
-    public void setTitle(String title) {
-        put(KEY_TITLE, title);
+    public void setLetter(ParseObject letter) {
+        put(KEY_LETTER, letter);
     }
 
     public String getContent() { return getString(KEY_CONTENT); }

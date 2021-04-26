@@ -80,18 +80,5 @@ public class LettersAdapter extends RecyclerView.Adapter<LettersAdapter.ViewHold
                 }
             });
         }
-
-        // Clean all elements of the recycler
-        public void clear() {
-            letters.clear();
-            notifyDataSetChanged();
-        }
-
-// Add a list of items -- change to type used
-        public void addAll(List<Letter> list) {
-            letters.addAll(list);
-            notifyDataSetChanged();
-        }
-
     }
 }
