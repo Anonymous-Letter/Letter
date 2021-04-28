@@ -88,13 +88,12 @@ Optional
 
 Here's a walkthrough of the current implemented user stories:
 
-<img src='https://i.imgur.com/w6gmNhY.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/knYMItu.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Wireframes
-<img src="https://i.imgur.com/knYMItu.gif" width=600>
-
+<img src="https://i.imgur.com/Q5HUaKU.jpg" width=600>
 
 ## Schema 
 ### Models
