@@ -15,15 +15,14 @@ public class RepliesContentAdapter extends RecyclerView.Adapter<RepliesContentAd
     Context context;
     List<Reply> replies;
 
-    public RepliesContentAdapter(Context context, List<Reply> replies) {
-        this.context = context;
+    public RepliesContentAdapter(List<Reply> replies) {
         this.replies = replies;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_repliescontent, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_repliescontent, parent, false);
         return new ViewHolder(view);
     }
 

@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
+import com.parse.ParseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +22,12 @@ import java.util.List;
 import static com.example.letter.fragments.ProfileFragment.TAG;
 
 public class RepliesAdapter extends RecyclerView.Adapter<RepliesAdapter.ViewHolder> {
+
+    // An object of RecyclerView.RecycledViewPool
+    // is created to share the Views
+    // between the child and
+    // the parent RecyclerViews
+    private RecyclerView.RecycledViewPool viewPool = new RecyclerView.RecycledViewPool();
     Context context;
     List<Letter> letters;
 
@@ -40,6 +47,11 @@ public class RepliesAdapter extends RecyclerView.Adapter<RepliesAdapter.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Letter letter = letters.get(position);
         holder.bind(letter);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(holder.rvReplies.getContext());
+        holder.rvReplies.setLayoutManager(layoutManager);
+        holder.rvReplies.setAdapter(holder.adapter);
+        holder.rvReplies.setRecycledViewPool(viewPool);
     }
 
     @Override
@@ -74,10 +86,9 @@ public class RepliesAdapter extends RecyclerView.Adapter<RepliesAdapter.ViewHold
         public void bind(Letter letter) {
             // Bind the post data to the view elements
             tvLetterHd.setText(letter.getTitle());
-            allReplies = new ArrayList<>();
-            adapter = new RepliesContentAdapter(context, allReplies);
-            rvReplies.setAdapter(adapter);
-            rvReplies.setLayoutManager(new LinearLayoutManager(context));
+
+            allReplies = new ArrayList<>();;
+            adapter = new RepliesContentAdapter(allReplies);
 
             queryReply(letter);
         }
