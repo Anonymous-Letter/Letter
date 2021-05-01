@@ -7,7 +7,7 @@
     tools:context=".fragments.ProfileFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvReply"
+        android:id="@+id/rvProfLetters"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btnSetting"

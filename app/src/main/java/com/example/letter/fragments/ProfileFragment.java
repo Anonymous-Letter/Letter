@@ -16,8 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.letter.Letter;
 import com.example.letter.LettersAdapter;
+import com.example.letter.ProfileAdapter;
 import com.example.letter.R;
-import com.example.letter.RepliesAdapter;
 import com.example.letter.SettingsActivity;
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -32,8 +32,8 @@ import java.util.List;
 public class ProfileFragment extends Fragment {
     public static final String TAG = "ProfileFragment";
     private Button btnSetting;
-    private RecyclerView rvReply;
-    protected RepliesAdapter adapter;
+    private RecyclerView rvProfLetters;
+    protected ProfileAdapter adapter;
     protected List<Letter> allLetters;
 
     @Override
@@ -48,12 +48,12 @@ public class ProfileFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         ParseObject.registerSubclass(Letter.class);
         btnSetting = view.findViewById(R.id.btnSetting);
-        rvReply = view.findViewById(R.id.rvReply);
+        rvProfLetters = view.findViewById(R.id.rvProfLetters);
 
         allLetters = new ArrayList<>();
-        adapter = new RepliesAdapter(getContext(), allLetters);
-        rvReply.setAdapter(adapter);
-        rvReply.setLayoutManager(new LinearLayoutManager(getContext()));
+        adapter = new ProfileAdapter(getContext(), allLetters);
+        rvProfLetters.setAdapter(adapter);
+        rvProfLetters.setLayoutManager(new LinearLayoutManager(getContext()));
 
         queryLetters();
 

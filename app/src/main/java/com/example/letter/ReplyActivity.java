@@ -66,8 +66,10 @@ public class ReplyActivity extends AppCompatActivity {
                             Log.e(TAG,"Error while saving",e);
                             Toast.makeText(ReplyActivity.this,"Error while saving",Toast.LENGTH_SHORT).show();
                         }
-                        Log.i(TAG,"Post save was successful");
-                        tvReplyContent.setText("");
+                        else {
+                            Log.i(TAG, "Post save was successful");
+                            tvReplyContent.setText("");
+                        }
                     }
                 });
             }
