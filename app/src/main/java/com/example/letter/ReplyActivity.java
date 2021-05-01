@@ -62,14 +62,12 @@ public class ReplyActivity extends AppCompatActivity {
                 reply.saveInBackground(new SaveCallback() {
                     @Override
                     public void done(ParseException e) {
-                        if(e!=null){
-                            Log.e(TAG,"Error while saving",e);
-                            Toast.makeText(ReplyActivity.this,"Error while saving",Toast.LENGTH_SHORT).show();
+                        if(e!=null) {
+                            Log.e(TAG, "Error while saving", e);
+                            Toast.makeText(ReplyActivity.this, "Error while saving", Toast.LENGTH_SHORT).show();
                         }
-                        else {
-                            Log.i(TAG, "Post save was successful");
-                            tvReplyContent.setText("");
-                        }
+                        Toast.makeText( ReplyActivity.this,"Reply was sent successful",Toast.LENGTH_SHORT).show();
+                        tvReplyContent.setText("");
                     }
                 });
             }

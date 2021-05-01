@@ -4,23 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#59BCBCBC"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="5dp"
+        android:background="#DCDCDC"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="30sp"
         android:textStyle="bold"
         tools:text="Title" />
 
     <TextView
         android:id="@+id/tvCategory"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:background="#DCDCDC"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         android:textAlignment="textEnd"

@@ -51,6 +51,7 @@ public class LetterDetailsActivity extends AppCompatActivity {
         btnReply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 goReply();
             }
         });

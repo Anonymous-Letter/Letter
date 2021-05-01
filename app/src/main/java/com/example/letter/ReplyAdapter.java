@@ -37,9 +37,7 @@ public class ReplyAdapter extends RecyclerView.Adapter<ReplyAdapter.ReplyViewHol
     @Override
     public void onBindViewHolder(@NonNull ReplyAdapter.ReplyViewHolder holder, int position) {
         Reply reply = replies.get(position);
-        holder.tvUser.setText(reply.getUser().getUsername());
-        holder.tvReply.setText(reply.getContent());
-        Log.i("ReplyAdapter", "Position" + position + " " + reply.getContent() +" " + reply.getUser().getUsername());
+        holder.bind(reply);
     }
 
     @Override
@@ -61,14 +59,16 @@ public class ReplyAdapter extends RecyclerView.Adapter<ReplyAdapter.ReplyViewHol
     }
     public class ReplyViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView tvUser;
         private TextView tvReply;
 
         public ReplyViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvUser = itemView.findViewById(R.id.tvUser);
             tvReply = itemView.findViewById(R.id.tvReply);
+        }
 
+        public void bind(Reply reply) {
+            tvReply.setText(reply.getContent());
+            Log.i("ReplyAdapter", "Reply: " + reply.getContent() + " " + reply.getUser().getUsername());
         }
     }
 

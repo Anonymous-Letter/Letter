@@ -69,14 +69,12 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
 
         private TextView tvTitle;
         private TextView tvCategory;
-        private TextView tvContent;
         private RecyclerView rvReplies;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvTitle = itemView.findViewById(R.id.tvTitle);
             tvCategory = itemView.findViewById(R.id.tvCategory);
-            tvContent = itemView.findViewById(R.id.tvContent);
             rvReplies =itemView.findViewById(R.id.rvReplies);
         }
 
@@ -84,10 +82,8 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
             // Bind the post data to the view elements
             tvTitle.setText(letter.getTitle());
             tvCategory.setText(letter.getCategory());
-            tvContent.setText(letter.getContent());
 
             queryReplies(letter);
-
         }
 
         protected void queryReplies(Letter letter) {
@@ -104,7 +100,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
                     }
                     for(Reply reply: replies){
                         try {
-                            Log.i(TAG, "Post: " +reply.getContent() + ", username: " + reply.getUser().fetchIfNeeded().getUsername() + letter.getObjectId());
+                            Log.i(TAG, "Reply: " + reply.getContent() + ", username: " + reply.getUser().fetchIfNeeded().getUsername() + reply.getObjectId());
                         } catch (ParseException parseException) {
                             parseException.printStackTrace();
                         }

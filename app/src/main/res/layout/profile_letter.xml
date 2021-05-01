@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#59BCBCBC"
     android:orientation="vertical">
 
     <TextView
@@ -27,25 +26,24 @@
         tools:text="Category" />
 
     <TextView
-        android:id="@+id/tvContent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="5dp"
-        tools:text="Letter Content" />
-
-    <TextView
         android:id="@+id/hardCoded"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Replies" />
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:background="#DCDCDC"
+        android:text="@string/replies"
+        android:textAlignment="viewStart"
+        android:textSize="20sp"
+        android:textStyle="bold|italic" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvReplies"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="0dp" />
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="30dp"
+        android:background="#DCDCDC" />
 
 </LinearLayout>
