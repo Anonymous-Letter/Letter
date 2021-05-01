@@ -86,12 +86,8 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
             tvCategory.setText(letter.getCategory());
             tvContent.setText(letter.getContent());
 
-            allReplies = new ArrayList<>();
             queryReplies(letter);
-            adapter = new ReplyAdapter(context, allReplies);
-            rvReplies.setAdapter(adapter);
-            rvReplies.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
-            allReplies.clear();
+
         }
 
         protected void queryReplies(Letter letter) {
@@ -109,14 +105,15 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
                     for(Reply reply: replies){
                         try {
                             Log.i(TAG, "Post: " +reply.getContent() + ", username: " + reply.getUser().fetchIfNeeded().getUsername() + letter.getObjectId());
-                            allReplies.add(reply);
                         } catch (ParseException parseException) {
                             parseException.printStackTrace();
                         }
                     }
 
-                    Log.i(TAG, " " +allReplies);
+                    adapter = new ReplyAdapter(context, replies);
                     adapter.notifyDataSetChanged();
+                    rvReplies.setAdapter(adapter);
+                    rvReplies.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
                 }
             });
         }
