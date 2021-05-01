@@ -40,7 +40,9 @@
         android:id="@+id/hardCoded"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Replies" />
+        android:text="Replies"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvReplies"
