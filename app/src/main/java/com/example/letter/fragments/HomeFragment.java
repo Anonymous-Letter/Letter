@@ -15,6 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.letter.Letter;
 import com.example.letter.LettersAdapter;
@@ -28,6 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
+    private SwipeRefreshLayout swipeContainer;
 
     public static final String TAG = "HomeFragment";
     private Spinner spCategories;
@@ -40,6 +42,8 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false);
+
+
     }
 
     @Override
@@ -62,14 +66,27 @@ public class HomeFragment extends Fragment {
         adapter = new LettersAdapter(getContext(), allLetters);
         rvLetters.setAdapter(adapter);
         rvLetters.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        //swipe to refresh features
+        swipeContainer = (SwipeRefreshLayout) view.findViewById(R.id.swipeContainer);
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                adapter.clear();
+                queryLetters(selected);
+                swipeContainer.setRefreshing(false);
+            }
+        });
+
+        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light);
     }
 
     protected void queryLetters(String category) {
         ParseQuery<Letter> query = ParseQuery.getQuery(Letter.class);
-        if ( category == "All" ) {}
-        else {
-            query.whereContains("category", category);
-        }
+        query.addDescendingOrder(Letter.KEY_CREATED_AT);
         query.findInBackground(new FindCallback<Letter>() {
             @Override
             public void done(List<Letter> letters, ParseException e) {

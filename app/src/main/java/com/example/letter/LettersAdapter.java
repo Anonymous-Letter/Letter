@@ -80,6 +80,5 @@ public class LettersAdapter extends RecyclerView.Adapter<LettersAdapter.ViewHold
                 }
             });
         }
-
     }
 }

@@ -38,7 +38,7 @@ public class Letter extends ParseObject {
         return getParseUser(KEY_AUTHOR);
     }
 
-    public  void setUser(ParseUser user) {
+    public void setUser(ParseUser user) {
         put(KEY_AUTHOR, user);
     }
 }
