@@ -23,6 +23,8 @@
         android:id="@+id/resetPass2Btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Confirm Reset Password" />
+        android:backgroundTint="#3EB489"
+        android:text="Confirm Reset Password"
+        android:textColor="#FFFFFF" />
 
 </LinearLayout>

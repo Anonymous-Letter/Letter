@@ -3,13 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="#FFA3EAD0"
     android:orientation="vertical"
-    tools:context=".fragments.HomeFragment" >
+    tools:context=".fragments.HomeFragment">
 
     <Spinner
         android:id="@+id/spCategories"
         android:layout_width="337dp"
-        android:layout_height="59dp" />
+        android:layout_height="59dp"
+        android:backgroundTint="#A3EAD0" />
 
     <Button
         android:id="@+id/btnFind"
@@ -19,7 +21,9 @@
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
         android:layout_toEndOf="@+id/spCategories"
-        android:text="FIND" />
+        android:backgroundTint="#3EB489"
+        android:text="FIND"
+        android:textColor="#FFFFFF" />
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 

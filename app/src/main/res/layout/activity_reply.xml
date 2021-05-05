@@ -26,7 +26,7 @@
         android:layout_below="@+id/tvReplyContent"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="2dp"
-        android:backgroundTint="#000000"
+        android:backgroundTint="#3EB489"
         android:text="SEND"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
