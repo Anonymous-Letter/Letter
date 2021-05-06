@@ -34,7 +34,7 @@ User can write an anonymous "letter" about their concerns and let others help fi
 * - [X] User can refresh home timeline by pulling down to refresh (i.e pull-to-refresh)
 * - [X] User can tap an anonymous letter to display a "detailed" view of that letter (e.g., category, letter content, reply button).
 * - [X] User can reply to other users' letters, offering suggestions to help them.
-* - [ ] User will have a profile page to view their letters and the responses.
+* - [x] User will have a profile page to view their letters and the responses.
 * - [X] The current signed in user is persisted across app restarts
 
 **Optional Nice-to-have Stories**
