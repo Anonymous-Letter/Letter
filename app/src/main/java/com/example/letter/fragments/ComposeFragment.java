@@ -30,6 +30,7 @@ import java.io.File;
 import java.util.List;
 
 public class ComposeFragment extends Fragment {
+    
 
     public static final String TAG = "ComposeFragment";
     private EditText etHeading;
@@ -89,6 +90,7 @@ public class ComposeFragment extends Fragment {
                     Toast.makeText(getContext(),"Content cannot be empty",Toast.LENGTH_SHORT).show();
                     return;
                 }
+
                 ParseUser currentAuthor = ParseUser.getCurrentUser();
                 //save post and some other components must be added. check 5:35 of ep 8
                 savePost(heading, content, category, currentAuthor);
