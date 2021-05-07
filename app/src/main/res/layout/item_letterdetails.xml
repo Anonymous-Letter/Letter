@@ -20,6 +20,7 @@
         android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="italic"
+        android:scrollbars = "vertical"
         tools:text="Letter Content" />
 
     <Button

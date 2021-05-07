@@ -12,6 +12,7 @@ import com.parse.ParseQuery;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -34,6 +35,8 @@ public class LetterDetailsActivity extends AppCompatActivity {
         tvHead = findViewById(R.id.tvHead);
         tvContent = findViewById(R.id.tvContent);
         btnReply = findViewById(R.id.btnReply);
+
+        tvContent.setMovementMethod(new ScrollingMovementMethod());
 
         query.getInBackground(letterId, (letter, error) -> {
             if (error == null) {
