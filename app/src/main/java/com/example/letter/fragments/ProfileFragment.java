@@ -10,6 +10,8 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -46,6 +48,10 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setCustomView(R.layout.actionbar_profile);
+
         ParseObject.registerSubclass(Letter.class);
         btnSetting = view.findViewById(R.id.btnSetting);
         rvProfLetters = view.findViewById(R.id.rvProfLetters);

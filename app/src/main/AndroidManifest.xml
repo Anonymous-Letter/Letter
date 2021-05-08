@@ -15,21 +15,35 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.BlackStatusBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ReplyActivity"></activity>
-        <activity android:name=".LoginActivity">
+        <activity android:name=".ReplyActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:screenOrientation="portrait" ></activity>
+        <activity android:name=".LoginActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity"></activity>
         <activity
             android:name=".LetterDetailsActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:screenOrientation="portrait" >
             android:parentActivityName=".MainActivity"></activity>
         <activity android:name=".SettingsActivity"></activity>
-        <activity android:name=".ResetPasswordActivity"></activity>
-        <activity android:name=".CreateActivity"></activity>
+        <activity android:name=".ResetPasswordActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity android:name=".CreateActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:screenOrientation="portrait" >
+        </activity>
+
+
     </application>
 
 </manifest>

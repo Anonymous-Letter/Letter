@@ -1,5 +1,6 @@
 package com.example.letter;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -23,6 +24,10 @@ public class SettingsActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.actionbar_settings);
+
         setContentView(R.layout.activity_settings);
 
         uNameDisp = findViewById(R.id.uNameDisp);
