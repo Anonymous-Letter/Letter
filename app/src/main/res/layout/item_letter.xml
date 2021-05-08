@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,13 +7,30 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/tvTitle"
+        android:id="@+id/tvBackground"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="220dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginStart="5dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="5dp"
-        android:background="#DCDCDC"
+        android:background="@drawable/letterbg2"
+        android:fontFamily="@font/hindimedium"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="4dp"
+        android:fontFamily="@font/hindimedium"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="30sp"
@@ -22,11 +39,16 @@
 
     <TextView
         android:id="@+id/tvCategory"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="20dp"
+        android:layout_below="@+id/tvTitle"
+        android:layout_alignBottom="@+id/tvBackground"
+        android:layout_centerHorizontal="true"
         android:layout_marginStart="5dp"
+        android:layout_marginTop="69dp"
         android:layout_marginEnd="5dp"
-        android:background="#DCDCDC"
+        android:layout_marginBottom="64dp"
+        android:background="#FFFCFC"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         android:textAlignment="textEnd"
@@ -34,17 +56,26 @@
 
     <Button
         android:id="@+id/btnOpen"
-        android:layout_width="match_parent"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:backgroundTint="#3EB489"
+        android:layout_below="@+id/tvBackground"
+        android:layout_alignBottom="@+id/tvBackground"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="-60dp"
+        android:layout_marginEnd="156dp"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="#6AB398"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         android:text="OPEN"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold" />
 
-</LinearLayout>
+
+</RelativeLayout>

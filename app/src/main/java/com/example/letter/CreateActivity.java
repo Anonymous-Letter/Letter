@@ -45,6 +45,10 @@ public class CreateActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onBackPressed(){
+        goLoginActivity();
+    }
     private void createUser() {
         Log.i(TAG, "Attempting to create user " + etNewUsername.getText().toString());
 

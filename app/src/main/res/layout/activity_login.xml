@@ -9,12 +9,12 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:src="@drawable/ic_letter_temp_logo"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="10dp" />
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/letterlogo1" />
 
     <EditText
         android:id="@+id/etUsername"
@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:backgroundTint="#3EB489"
+        android:backgroundTint="#4CAF76"
         android:text="Login"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
@@ -59,12 +59,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
+        android:layout_marginTop="0dp"
         android:layout_marginEnd="10dp"
-        android:backgroundTint="#000000"
+        android:backgroundTint="#CE000000"
         android:text="Create Account"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
-        android:textStyle="bold"  />
+        android:textStyle="bold" />
 
 </LinearLayout>
