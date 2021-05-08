@@ -111,9 +111,9 @@ public class ComposeFragment extends Fragment {
             public void done(ParseException e) {
                 if(e!=null){
                     Log.e(TAG,"Error while saving",e);
-                    Toast.makeText(getContext(),"Error while saving",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(),"Error while saving", Toast.LENGTH_SHORT).show();
                 }
-                Log.i(TAG,"Post save was successful");
+                Toast.makeText(getContext(),"Post save was successful", Toast.LENGTH_SHORT).show();
                 etHeading.setText("");
                 etContent.setText("");
             }
