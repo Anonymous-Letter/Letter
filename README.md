@@ -86,7 +86,7 @@ Optional
 
 ## Video Walkthrough
 
-Here's a walkthrough of the current implemented user stories:
+Here's a walkthrough of the final app:
 
 <img src='https://i.imgur.com/jvTlflu.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
